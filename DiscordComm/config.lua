@@ -6,3 +6,4 @@ Config.ChannelID = "Channel ID of the Commands"
 Config.ReplyUserName = "Bot Username"
 Config.AvatarURL = "Bot Avatar URL"
 Config.Prefix = "!"
+Config.WaitEveryTick = 50  -- ITS MS
