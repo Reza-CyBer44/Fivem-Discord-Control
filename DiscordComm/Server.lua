@@ -203,7 +203,7 @@ end
 
 
 
-
+-- Main Loop That Constantly Checking the suerinput
 
 Citizen.CreateThread(function()
 
@@ -229,7 +229,7 @@ Citizen.CreateThread(function()
 	
 	end
 
-	Citizen.Wait(0)
+	Citizen.Wait(Config.WaitEveryTick)
 	end
 end)
 
