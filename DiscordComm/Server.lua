@@ -1,6 +1,6 @@
 local lastdata = nil
 ESX = nil
-if Config.Esx then
+if Config.ESX then
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 end
 
@@ -35,7 +35,7 @@ end
 
 
 function GetRealPlayerName(playerId)
-    if Config.Esx then
+    if Config.ESX then
 	local xPlayer = ESX.GetPlayerFromId(playerId)
 	return xPlayer.getName()
 	else
@@ -154,7 +154,7 @@ elseif string.starts(command,Config.Prefix .. "notific") then
 	local t = mysplit(command," ")
    if t[2] ~= nil and GetPlayerName(t[2]) ~= nil and t[3] ~= nil then
    
-   TriggerEvent('chat:addMessage', t[2], {
+   TriggerClientEvent('chat:addMessage', t[2], {
            color = { 255, 0, 0},
            multiline = true,
           args = {"Discord Console", "^1 " .. string.gsub(safecom, "!notific " .. t[2] .. " ","")}
@@ -175,7 +175,7 @@ elseif string.starts(command,Config.Prefix .. "announce") then
 	local t = mysplit(command," ")
    if t[2] ~= nil then
    
-   TriggerEvent('chat:addMessage', t[2], {
+   TriggerClientEvent('chat:addMessage', -1, {
            color = { 255, 0, 0},
            multiline = true,
           args = {"Discord Console", "^1 " .. string.gsub(safecom, Config.Prefix .. "announce","")}
@@ -203,7 +203,7 @@ end
 
 
 
--- Main Loop That Constantly Checking the suerinput
+
 
 Citizen.CreateThread(function()
 
@@ -229,7 +229,7 @@ Citizen.CreateThread(function()
 	
 	end
 
-	Citizen.Wait(Config.WaitEveryTick)
+	Citizen.Wait(0)
 	end
 end)
 
