@@ -59,9 +59,9 @@ if string.starts(command,Config.Prefix) then
 	     local t = mysplit(command," ")
 	 
 	     if t[2] ~= nil and GetPlayerName(t[2]) ~= nil then
-	 
-	     DropPlayer(t[2],"KICKED FROM DISCORD CONSOLE")
 	     sendToDiscord("KICKED Succesfully", "Succesfuly Kicked " .. GetPlayerName(t[2]),16711680)
+	     DropPlayer(t[2],"KICKED FROM DISCORD CONSOLE")
+	     
 	 
 	 
 	     else
