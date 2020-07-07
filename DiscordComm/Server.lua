@@ -17,6 +17,14 @@ function DiscordRequest(method, endpoint, jsondata)
     return data
 end
 
+Citizen.CreateThread(function()
+while true do 
+  Citizen.Wait(600000)
+  PerformHttpRequest(Config.WebHook, function(err, text, headers) end, 'POST', json.encode({username = Config.ReplyUserName, content = "Discord Bot Heart Beat Received ", avatar_url = Config.AvatarURL}), { ['Content-Type'] = 'application/json' })
+end
+end)
+
+
 function string.starts(String,Start)
    return string.sub(String,1,string.len(Start))==Start
 end
@@ -61,7 +69,7 @@ if string.starts(command,Config.Prefix) then
 	     if t[2] ~= nil and GetPlayerName(t[2]) ~= nil then
 	     sendToDiscord("KICKED Succesfully", "Succesfuly Kicked " .. GetPlayerName(t[2]),16711680)
 	     DropPlayer(t[2],"KICKED FROM DISCORD CONSOLE")
-	     
+	    
 	 
 	 
 	     else
