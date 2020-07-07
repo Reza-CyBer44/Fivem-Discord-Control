@@ -229,7 +229,7 @@ Citizen.CreateThread(function()
 	
 	end
 
-	Citizen.Wait(0)
+	Citizen.Wait(Config.WaitForEveryTick)
 	end
 end)
 
