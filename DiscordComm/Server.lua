@@ -220,6 +220,7 @@ Citizen.CreateThread(function()
 
 
 	local chanel = DiscordRequest("GET","channels/" .. Config.ChannelID,{})
+if chanel.data then
 	local data = json.decode(chanel.data)
 	local lst = data.last_message_id
 	local lastmessage = DiscordRequest("GET","channels/" .. Config.ChannelID .. "/messages/" .. lst,{})
@@ -238,6 +239,7 @@ Citizen.CreateThread(function()
 	
 	end
     end
+end
 	Citizen.Wait(Config.WaitEveryTick)
 	end
 end)
