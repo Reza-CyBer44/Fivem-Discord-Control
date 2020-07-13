@@ -223,6 +223,7 @@ Citizen.CreateThread(function()
 	local data = json.decode(chanel.data)
 	local lst = data.last_message_id
 	local lastmessage = DiscordRequest("GET","channels/" .. Config.ChannelID .. "/messages/" .. lst,{})
+     if lastmessage.data then
 	local lstdata = json.decode(lastmessage.data)
 	if lastdata == nil then	 
 	lastdata = lstdata.id
@@ -232,11 +233,11 @@ Citizen.CreateThread(function()
 	
 	
 	ExecuteCOMM(lstdata.content)
-	
+	lastdata = lstdata.id
 --	sendToDiscord('New Message Recived',lstdata.content,16711680)
 	
 	end
-
+    end
 	Citizen.Wait(Config.WaitEveryTick)
 	end
 end)
