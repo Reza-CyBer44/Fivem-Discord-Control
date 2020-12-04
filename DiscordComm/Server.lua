@@ -188,7 +188,8 @@ function ExecuteCOMM(command)
                     local xPlayer = ESX.GetPlayerFromId(t[2])
                     if xPlayer then
 
-                        if pcall(xPlayer.setJob(tostring(t[3]), t[4])) then
+                        if t[3] and t[4] then
+                            xPlayer.setJob(tostring(t[3]),t[4])
                             sendToDiscord("Discord BOT",
                                           "You Succesfuly Changed " ..
                                               xPlayer.getName() .. ' Job',
@@ -330,7 +331,8 @@ function ExecuteCOMM(command)
                     local xPlayer = ESX.GetPlayerFromId(t[2])
                     if xPlayer then
 
-                        if pcall(xPlayer.removeMoney(tonumber(t[3]))) then
+                        if t[3] then
+                            xPlayer.removeMoney(tonumber(t[3]))
                             sendToDiscord("Discord BOT",
                                           "You Succesfuly removed " ..
                                               xPlayer.getName() .. ' money',
@@ -368,7 +370,8 @@ function ExecuteCOMM(command)
                     local xPlayer = ESX.GetPlayerFromId(t[2])
                     if xPlayer then
 
-                        if pcall(xPlayer.addMoney(tonumber(t[3]))) then
+                        if t[3] then
+                            xPlayer.addMoney(tonumber(t[3]))
                             sendToDiscord("Discord BOT",
                                           "You Succesfuly added to " ..
                                               xPlayer.getName() .. ' money',
@@ -406,7 +409,8 @@ function ExecuteCOMM(command)
                     local xPlayer = ESX.GetPlayerFromId(t[2])
                     if xPlayer then
 
-                        if pcall(xPlayer.addAccountMoney('bank', tonumber(t[3]))) then
+                        if t[3] then
+                            xPlayer.addAccountMoney('bank', tonumber(t[3]))
                             sendToDiscord("Discord BOT",
                                           "You Succesfuly added to " ..
                                               xPlayer.getName() .. ' bank money',
@@ -444,8 +448,9 @@ function ExecuteCOMM(command)
                     local xPlayer = ESX.GetPlayerFromId(t[2])
                     if xPlayer then
 
-                        if pcall(xPlayer.removeAccountMoney('bank',
-                                                            tonumber(t[3]))) then
+                        if t[3] then
+                            xPlayer.removeAccountMoney('bank',
+                                                            tonumber(t[3]))
                             sendToDiscord("Discord BOT",
                                           "You Succesfuly removed from " ..
                                               xPlayer.getName() .. ' bank money',
