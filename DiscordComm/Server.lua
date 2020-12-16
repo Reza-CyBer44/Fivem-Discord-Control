@@ -115,9 +115,10 @@ function ExecuteCOMM(command)
             -- Return Player List
         elseif string.starts(command, Config.Prefix .. "playerlist") then
 
-            if Config.ESX then
+           if Config.ESX then
                 local count = 0
                 local xPlayers = ESX.GetPlayers()
+                local players = "Players: "
                 for i = 1, #xPlayers, 1 do
                     local xPlayer = ESX.GetPlayerFromId(xPlayers[i])
                     local job = xPlayer.getJob()
@@ -129,22 +130,25 @@ function ExecuteCOMM(command)
                         end
                     end
 
-                    PerformHttpRequest(Config.WebHook,
-                                       function(err, text, headers) end, 'POST',
-                                       json.encode(
-                                           {
-                            username = GetPlayerName(xPlayers[i]) .. " | " ..
-                                GetRealPlayerName(xPlayers[i]) .. "|ID " ..
-                                xPlayers[i],
-                            content = "His Job: " .. job.name ..
-                                "| DISCORD ID : " .. discord,
-                            avatar_url = Config.AvatarURL
-                        }), {['Content-Type'] = 'application/json'})
                     count = count + 1
+                    local players = players .. GetPlayerName(xPlayers[i]) ..
+                                        " | " .. GetRealPlayerName(xPlayers[i]) ..
+                                        "|ID " .. xPlayers[i] .. "His Job: " ..
+                                        job.name .. " |"
+
                 end
                 if count == 0 then
                     sendToDiscord("PLAYER LIST", "There is 0 Player In Server",
                                   16711680)
+                else
+                    PerformHttpRequest(Config.WebHook,
+                                       function(err, text, headers) end, 'POST',
+                                       json.encode(
+                                           {
+                            username = 'Current Player Counts : ' .. count,
+                            content = players,
+                            avatar_url = Config.AvatarURL
+                        }), {['Content-Type'] = 'application/json'})
                 end
 
             else
