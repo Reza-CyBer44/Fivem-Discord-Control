@@ -100,8 +100,8 @@ function ExecuteCOMM(command)
                         "^1 You Have Been Killed By Discord Console"
                     }
                 })
-                sendToDiscord("KICKED Succesfully",
-                              "Succesfuly Kicked " .. GetPlayerName(t[2]),
+                sendToDiscord("KILLED Succesfully",
+                              "Succesfuly KILLED " .. GetPlayerName(t[2]),
                               16711680)
 
             else
