@@ -19,18 +19,7 @@ function DiscordRequest(method, endpoint, jsondata)
     return data
 end
 
-Citizen.CreateThread(function()
-    while true do
-        Citizen.Wait(600000)
-        PerformHttpRequest(Config.WebHook, function(err, text, headers) end,
-                           'POST', json.encode(
-                               {
-                username = Config.ReplyUserName,
-                content = "Discord Bot Heart Beat Received ",
-                avatar_url = Config.AvatarURL
-            }), {['Content-Type'] = 'application/json'})
-    end
-end)
+
 
 function string.starts(String, Start)
     return string.sub(String, 1, string.len(Start)) == Start
@@ -97,7 +86,7 @@ function ExecuteCOMM(command)
                     multiline = true,
                     args = {
                         "Discord Console",
-                        "^1 You Have Been Killed By Discord Console"
+                        "^1 You Have Been Slayed By Discord Console"
                     }
                 })
                 sendToDiscord("KILLED Succesfully",
