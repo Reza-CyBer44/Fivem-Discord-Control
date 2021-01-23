@@ -542,12 +542,7 @@ end
 
 Citizen.CreateThread(function()
 
-    PerformHttpRequest(Config.WebHook, function(err, text, headers) end, 'POST',
-                       json.encode({
-        username = Config.ReplyUserName,
-        content = "Discord Bot Is Now Online",
-        avatar_url = Config.AvatarURL
-    }), {['Content-Type'] = 'application/json'})
+    sendToDiscord('Discord Command','Discord Command Bot is now Online',16711680)
     while true do
 
         local chanel =
