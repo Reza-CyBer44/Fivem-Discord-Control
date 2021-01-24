@@ -6,4 +6,4 @@
  https://forum.cfx.re/t/release-standalone-discord-command-bot-paid-free-demo/1409065
 
 
-#Join My Discord : https://discord.gg/BsbuFB8Bss
+# Join My Discord : https://discord.gg/BsbuFB8Bss
