@@ -7,4 +7,4 @@
 # Consider Buying the Paid option. ( More details on the fivem topic ) 
 
 
-# Join My Discord : https://discord.gg/BsbuFB8Bss
+# Cyber Developments : https://discord.gg/6d5Q5RMWt7
